@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Generation Test</h1>
+    <p>This is a simple test to verify jsPDF is working correctly.</p>
+    
+    <button onclick="testPDF()">Test PDF Download</button>
+    
+    <div id="status" class="status"></div>
+    
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Click the "Test PDF Download" button</li>
+        <li>A PDF file should download (NOT a TXT file)</li>
+        <li>Open the PDF - it should show "Hello PDF!"</li>
+        <li>If it works here, the main app will work too after clearing cache</li>
+    </ol>
+    
+    <h2>If it doesn't work:</h2>
+    <ul>
+        <li>Check your internet connection (jsPDF loads from CDN)</li>
+        <li>Open browser console (F12) and look for errors</li>
+        <li>Try a different browser</li>
+    </ul>
+
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script>
+        function testPDF() {
+            const statusDiv = document.getElementById('status');
+            
+            try {
+                // Check if jsPDF is loaded
+                if (typeof window.jspdf === 'undefined') {
+                    statusDiv.className = 'status error';
+                    statusDiv.style.display = 'block';
+                    statusDiv.innerHTML = '❌ Error: jsPDF library not loaded. Check your internet connection.';
+                    return;
+                }
+                
+                // Initialize jsPDF
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                // Add blue header
+                doc.setFillColor(37, 99, 235);
+                doc.rect(0, 0, 210, 40, 'F');
+                
+                // Add white title
+                doc.setFontSize(24);
+                doc.setFont('helvetica', 'bold');
+                doc.setTextColor(255, 255, 255);
+                doc.text('PDF TEST - SUCCESS!', 105, 25, { align: 'center' });
+                
+                // Add body text
+                doc.setFontSize(16);
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(0, 0, 0);
+                doc.text('Hello PDF!', 20, 60);
+                
+                doc.setFontSize(12);
+                doc.text('If you can see this PDF with a blue header,', 20, 80);
+                doc.text('then jsPDF is working correctly!', 20, 90);
+                
+                doc.text('The main application will work after you:', 20, 110);
+                doc.text('1. Clear your browser cache', 20, 120);
+                doc.text('2. Do a hard refresh (Ctrl + Shift + R)', 20, 130);
+                doc.text('3. Or open in incognito mode', 20, 140);
+                
+                // Add timestamp
+                doc.setFontSize(10);
+                doc.setTextColor(150, 150, 150);
+                doc.text(`Generated: ${new Date().toLocaleString()}`, 105, 280, { align: 'center' });
+                
+                // Save the PDF
+                const fileName = `pdf_test_${Date.now()}.pdf`;
+                doc.save(fileName);
+                
+                // Show success message
+                statusDiv.className = 'status success';
+                statusDiv.style.display = 'block';
+                statusDiv.innerHTML = `✅ Success! PDF downloaded as: ${fileName}<br>Check your downloads folder.`;
+                
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.style.display = 'block';
+                statusDiv.innerHTML = `❌ Error: ${error.message}<br>Check browser console (F12) for details.`;
+                console.error('PDF generation error:', error);
+            }
+        }
+        
+        // Check if jsPDF loaded on page load
+        window.addEventListener('load', function() {
+            const statusDiv = document.getElementById('status');
+            if (typeof window.jspdf !== 'undefined') {
+                console.log('✅ jsPDF loaded successfully');
+            } else {
+                statusDiv.className = 'status error';
+                statusDiv.style.display = 'block';
+                statusDiv.innerHTML = '❌ Warning: jsPDF library failed to load. Check your internet connection.';
+            }
+        });
+    </script>
+</body>
+</html>

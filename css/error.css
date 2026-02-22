@@ -1,0 +1,116 @@
+/* Error Page Styles */
+
+.error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+    padding: 2rem;
+}
+
+.error-content {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.error-content h1 {
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.error-hint {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.error-actions .primary-btn,
+.error-actions .secondary-btn {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.error-actions .secondary-btn {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.error-actions .secondary-btn:hover {
+    background: var(--bg-light);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .error-content {
+        padding: 2rem;
+    }
+
+    .error-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .error-icon {
+        font-size: 4rem;
+    }
+
+    .error-actions {
+        flex-direction: column;
+    }
+
+    .error-actions .primary-btn,
+    .error-actions .secondary-btn {
+        width: 100%;
+    }
+}

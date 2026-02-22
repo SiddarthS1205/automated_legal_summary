@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - LegalDoc AI</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/error.css">
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="error-icon">⚠️</div>
+            <h1>Oops! Something went wrong</h1>
+            <p id="error-message" class="error-message">We encountered an unexpected error.</p>
+            <p id="error-hint" class="error-hint">Please try again or contact support if the problem persists.</p>
+            
+            <div class="error-actions">
+                <button onclick="goBack()" class="primary-btn">Go Back</button>
+                <a href="dashboard.html" class="secondary-btn">Return to Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/utils.js"></script>
+    <script>
+        /**
+         * Go back to previous page
+         */
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'dashboard.html';
+            }
+        }
+
+        /**
+         * Load error details from sessionStorage
+         */
+        function loadErrorDetails() {
+            const errorDataStr = sessionStorage.getItem('errorData');
+            
+            if (errorDataStr) {
+                try {
+                    const errorData = JSON.parse(errorDataStr);
+                    
+                    if (errorData.message) {
+                        document.getElementById('error-message').textContent = errorData.message;
+                    }
+                    
+                    // Set appropriate hint based on error type
+                    let hint = 'Please try again or contact support if the problem persists.';
+                    
+                    if (errorData.type === 'network') {
+                        hint = 'Please check your internet connection and try again. If the problem persists, the service may be temporarily unavailable.';
+                    } else if (errorData.type === 'upload') {
+                        hint = 'Please ensure your file is a valid PDF or Word document under 10MB and try again.';
+                    } else if (errorData.type === 'auth') {
+                        hint = 'Please log in again to continue using the application.';
+                    }
+                    
+                    document.getElementById('error-hint').textContent = hint;
+                    
+                    // Clear error data from sessionStorage
+                    sessionStorage.removeItem('errorData');
+                } catch (e) {
+                    console.error('Error parsing error data:', e);
+                }
+            }
+        }
+
+        // Load error details on page load
+        document.addEventListener('DOMContentLoaded', loadErrorDetails);
+    </script>
+</body>
+</html>

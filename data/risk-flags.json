@@ -1,0 +1,186 @@
+{
+  "riskCategories": [
+    {
+      "category": "Financial Risk",
+      "description": "Risks related to payment terms, pricing, and financial obligations",
+      "flags": [
+        {
+          "id": "fin_001",
+          "title": "Unlimited Liability Exposure",
+          "description": "Contract contains unlimited liability provisions without caps or limitations",
+          "severity": "high",
+          "indicators": ["unlimited liability", "no liability cap", "uncapped damages"]
+        },
+        {
+          "id": "fin_002",
+          "title": "Automatic Price Escalation",
+          "description": "Automatic price increases without negotiation or market adjustment",
+          "severity": "medium",
+          "indicators": ["automatic increase", "price escalation", "annual adjustment"]
+        },
+        {
+          "id": "fin_003",
+          "title": "Unfavorable Payment Terms",
+          "description": "Short payment windows or high late payment penalties",
+          "severity": "medium",
+          "indicators": ["net-15", "net-7", "late payment penalty", "interest on overdue"]
+        }
+      ]
+    },
+    {
+      "category": "Termination Risk",
+      "description": "Risks related to contract termination rights and obligations",
+      "flags": [
+        {
+          "id": "term_001",
+          "title": "Unilateral Termination Rights",
+          "description": "One party has significantly more favorable termination rights than the other",
+          "severity": "high",
+          "indicators": ["terminate at any time", "terminate without cause", "unilateral termination"]
+        },
+        {
+          "id": "term_002",
+          "title": "Short Notice Period",
+          "description": "Insufficient notice period for termination creates business uncertainty",
+          "severity": "medium",
+          "indicators": ["30 days notice", "immediate termination", "short notice"]
+        },
+        {
+          "id": "term_003",
+          "title": "Automatic Renewal Without Notice",
+          "description": "Contract automatically renews without adequate notice period",
+          "severity": "medium",
+          "indicators": ["automatic renewal", "evergreen clause", "auto-renew"]
+        }
+      ]
+    },
+    {
+      "category": "Intellectual Property Risk",
+      "description": "Risks related to ownership and use of intellectual property",
+      "flags": [
+        {
+          "id": "ip_001",
+          "title": "Broad IP Assignment",
+          "description": "Overly broad assignment of intellectual property rights without carve-outs",
+          "severity": "medium",
+          "indicators": ["all intellectual property", "work made for hire", "exclusive property"]
+        },
+        {
+          "id": "ip_002",
+          "title": "No Pre-Existing IP Protection",
+          "description": "Failure to protect pre-existing intellectual property and tools",
+          "severity": "high",
+          "indicators": ["all work product", "no carve-out", "including pre-existing"]
+        },
+        {
+          "id": "ip_003",
+          "title": "Restrictive License Terms",
+          "description": "Limitations on using general methodologies or tools post-termination",
+          "severity": "medium",
+          "indicators": ["no license", "exclusive license", "perpetual assignment"]
+        }
+      ]
+    },
+    {
+      "category": "Non-Compete Risk",
+      "description": "Risks related to non-compete and non-solicitation provisions",
+      "flags": [
+        {
+          "id": "nc_001",
+          "title": "Broad Geographic Restriction",
+          "description": "Non-compete covers overly broad geographic area",
+          "severity": "high",
+          "indicators": ["nationwide", "50-mile radius", "100-mile radius", "state-wide"]
+        },
+        {
+          "id": "nc_002",
+          "title": "Extended Duration",
+          "description": "Non-compete extends for unreasonably long period",
+          "severity": "high",
+          "indicators": ["18 months", "24 months", "two years", "three years"]
+        },
+        {
+          "id": "nc_003",
+          "title": "Broad Industry Restriction",
+          "description": "Non-compete restricts entire industry rather than specific services",
+          "severity": "medium",
+          "indicators": ["any competing business", "similar services", "related industry"]
+        }
+      ]
+    },
+    {
+      "category": "Indemnification Risk",
+      "description": "Risks related to indemnification obligations and scope",
+      "flags": [
+        {
+          "id": "ind_001",
+          "title": "One-Sided Indemnification",
+          "description": "Indemnification obligations are not mutual or balanced",
+          "severity": "high",
+          "indicators": ["shall indemnify", "hold harmless", "defend and indemnify"]
+        },
+        {
+          "id": "ind_002",
+          "title": "Broad Indemnification Scope",
+          "description": "Indemnification covers matters beyond party's reasonable control",
+          "severity": "medium",
+          "indicators": ["any and all claims", "all damages", "any losses"]
+        },
+        {
+          "id": "ind_003",
+          "title": "Third-Party Claims",
+          "description": "Indemnification extends to third-party claims without limitations",
+          "severity": "medium",
+          "indicators": ["third-party claims", "claims by others", "any person or entity"]
+        }
+      ]
+    },
+    {
+      "category": "Dispute Resolution Risk",
+      "description": "Risks related to dispute resolution mechanisms",
+      "flags": [
+        {
+          "id": "dr_001",
+          "title": "Mandatory Arbitration",
+          "description": "Required arbitration eliminates right to jury trial",
+          "severity": "medium",
+          "indicators": ["binding arbitration", "mandatory arbitration", "exclusively through arbitration"]
+        },
+        {
+          "id": "dr_002",
+          "title": "Unfavorable Venue",
+          "description": "Dispute resolution venue is inconvenient or unfavorable",
+          "severity": "low",
+          "indicators": ["venue shall be", "jurisdiction in", "courts located in"]
+        },
+        {
+          "id": "dr_003",
+          "title": "Limited Discovery Rights",
+          "description": "Arbitration or dispute resolution limits discovery or evidence gathering",
+          "severity": "medium",
+          "indicators": ["limited discovery", "expedited arbitration", "streamlined process"]
+        }
+      ]
+    }
+  ],
+  "severityLevels": {
+    "high": {
+      "color": "#dc3545",
+      "label": "High Risk",
+      "description": "Requires immediate attention and likely negotiation",
+      "icon": "⚠️"
+    },
+    "medium": {
+      "color": "#ffc107",
+      "label": "Medium Risk",
+      "description": "Should be reviewed and potentially modified",
+      "icon": "⚡"
+    },
+    "low": {
+      "color": "#28a745",
+      "label": "Low Risk",
+      "description": "Standard provision with minimal risk",
+      "icon": "ℹ️"
+    }
+  }
+}

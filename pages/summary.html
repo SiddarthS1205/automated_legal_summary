@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Summary - Legal Document Summarization</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/summary.css">
+</head>
+<body>
+    <div class="summary-container">
+        <!-- Header with title and download button -->
+        <header class="summary-header">
+            <div class="header-content">
+                <h1>Document Summary</h1>
+                <button id="download-btn" class="download-btn">
+                    <span class="download-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </span>
+                    <span class="download-text">Download Summary</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Executive Summary Section -->
+        <section class="summary-section">
+            <h2>Executive Summary</h2>
+            <div id="summary-text" class="summary-text">
+                <!-- Summary text will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Extracted Clauses Section -->
+        <section class="clauses-section">
+            <h2>Extracted Clauses</h2>
+            <div id="clauses-grid" class="clauses-grid">
+                <!-- Clause cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Risk Flags Section -->
+        <section class="risks-section">
+            <h2>Risk Flags</h2>
+            <div id="risks-list" class="risks-list">
+                <!-- Risk items will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Back to Dashboard Link -->
+        <div class="navigation-footer">
+            <a href="dashboard.html" class="secondary-btn">← Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <!-- jsPDF library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="../js/summary.js"></script>
+</body>
+</html>

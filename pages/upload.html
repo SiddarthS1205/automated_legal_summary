@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Contract - Legal Document Summarization</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/upload.css">
+</head>
+<body>
+  <!-- Upload Page Container -->
+  <div class="upload-page">
+    
+    <!-- Header with Navigation -->
+    <header class="upload-header">
+      <div class="header-content">
+        <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+        <h1>Upload Contract</h1>
+        <p class="subtitle">Upload a legal document to generate a summary and risk assessment</p>
+      </div>
+    </header>
+    
+    <!-- Main Upload Section -->
+    <main class="upload-main">
+      <div class="upload-container">
+        
+        <!-- Drag and Drop Upload Area -->
+        <div class="upload-area" id="upload-area">
+          <div class="upload-icon">📄</div>
+          <h2>Drag and drop your contract here</h2>
+          <p class="upload-hint">or click to browse</p>
+          <p class="upload-formats">Supported formats: PDF, DOCX (Max 10MB)</p>
+          
+          <!-- Hidden File Input -->
+          <input type="file" id="file-input" accept=".pdf,.docx" hidden>
+        </div>
+        
+        <!-- File Info Display (Initially Hidden) -->
+        <div id="file-info" class="file-info hidden">
+          <div class="file-details">
+            <span class="file-icon">📎</span>
+            <div class="file-text">
+              <p class="file-label">Selected file:</p>
+              <p class="file-name" id="file-name"></p>
+              <p class="file-size" id="file-size"></p>
+            </div>
+            <button class="remove-file-btn" id="remove-file-btn" aria-label="Remove file">✕</button>
+          </div>
+          
+          <!-- Generate Summary Button -->
+          <button id="generate-btn" class="btn-primary btn-lg btn-block">
+            Generate Summary
+          </button>
+        </div>
+        
+        <!-- AI Processing Animation (Initially Hidden) -->
+        <div id="loading" class="loading hidden">
+          <div class="ai-processing-container">
+            <div class="spinner"></div>
+            <h3 class="ai-title">🔄 AI is analyzing your contract...</h3>
+            
+            <div class="processing-stages">
+              <div class="stage-item" id="stage-1">
+                <span class="stage-icon">📄</span>
+                <span class="stage-text">Reading document structure...</span>
+                <span class="stage-status">⏳</span>
+              </div>
+              
+              <div class="stage-item" id="stage-2">
+                <span class="stage-icon">🔍</span>
+                <span class="stage-text">Extracting key clauses...</span>
+                <span class="stage-status">⏳</span>
+              </div>
+              
+              <div class="stage-item" id="stage-3">
+                <span class="stage-icon">⚠️</span>
+                <span class="stage-text">Detecting risk deviations...</span>
+                <span class="stage-status">⏳</span>
+              </div>
+              
+              <div class="stage-item" id="stage-4">
+                <span class="stage-icon">📊</span>
+                <span class="stage-text">Generating summary report...</span>
+                <span class="stage-status">⏳</span>
+              </div>
+              
+              <div class="stage-item" id="stage-5">
+                <span class="stage-icon">✨</span>
+                <span class="stage-text">Finalizing analysis...</span>
+                <span class="stage-status">⏳</span>
+              </div>
+            </div>
+            
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p class="progress-text" id="progress-text">0% Complete</p>
+          </div>
+        </div>
+        
+        <!-- Error Message Container (Initially Hidden) -->
+        <div id="upload-error" class="error-container hidden">
+          <div class="error-message">
+            <span class="error-icon">⚠️</span>
+            <div id="error-text"></div>
+          </div>
+        </div>
+        
+      </div>
+    </main>
+    
+  </div>
+  
+  <!-- JavaScript Files -->
+  <script src="../js/auth.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/upload.js"></script>
+</body>
+</html>

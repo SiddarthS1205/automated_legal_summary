@@ -1,0 +1,401 @@
+/* Summary Page Styles */
+
+.summary-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header Section */
+.summary-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.summary-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.btn-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Download Button - Enhanced Design (Blue) */
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.download-btn:hover::before {
+    left: 100%;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.download-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.download-btn:hover .download-icon {
+    transform: translateY(2px);
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(4px);
+    }
+}
+
+.download-text {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Download button success state */
+.download-btn.downloading {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.download-btn.downloading .download-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.download-btn.success {
+    background: #10b981;
+    color: white;
+    border-color: #10b981;
+}
+
+.download-btn.success .download-icon svg {
+    display: none;
+}
+
+.download-btn.success .download-icon::after {
+    content: '✓';
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* Summary Text Section */
+.summary-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.summary-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.summary-text {
+    line-height: 1.8;
+    color: var(--text-color);
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* Clauses Section */
+.clauses-section {
+    margin-bottom: 2rem;
+}
+
+.clauses-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.clauses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Clause Card Styling */
+.clause-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 4px solid var(--primary-color);
+}
+
+.clause-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.clause-title {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.clause-text {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.clause-tag {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Risk Flags Section */
+.risks-section {
+    margin-bottom: 2rem;
+}
+
+.risks-section h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.risks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Risk Item Styling */
+.risk-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1rem;
+    border-left: 4px solid;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.risk-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Severity Colors */
+.risk-item.risk-high {
+    border-left-color: var(--error-color);
+    background: #fff5f5;
+}
+
+.risk-item.risk-medium {
+    border-left-color: var(--warning-color);
+    background: #fffbf0;
+}
+
+.risk-item.risk-low {
+    border-left-color: #4caf50;
+    background: #f1f8f4;
+}
+
+.risk-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.risk-item.risk-high .risk-icon {
+    color: var(--error-color);
+}
+
+.risk-item.risk-medium .risk-icon {
+    color: var(--warning-color);
+}
+
+.risk-item.risk-low .risk-icon {
+    color: #4caf50;
+}
+
+.risk-content {
+    flex: 1;
+}
+
+.risk-content h4 {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.risk-content p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.risk-recommendation {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    border-left: 3px solid var(--primary-color);
+}
+
+.risk-recommendation strong {
+    color: var(--primary-color);
+}
+
+/* Navigation Footer */
+.navigation-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Layout for Tablet */
+@media (max-width: 1023px) {
+    .summary-container {
+        padding: 1.5rem;
+    }
+
+    .summary-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .download-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .clauses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+
+    .clause-card {
+        padding: 1.25rem;
+    }
+
+    .risk-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .risk-icon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .summary-container {
+        padding: 1rem;
+    }
+
+    .summary-header {
+        padding: 1.5rem;
+    }
+
+    .summary-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .download-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .clauses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-section,
+    .clause-card,
+    .risk-item {
+        padding: 1rem;
+    }
+}

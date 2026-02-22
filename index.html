@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LegalDoc AI - Automated Legal Document Summarization System for law firms">
+    <meta name="keywords" content="legal, document, summarization, AI, contract analysis">
+    <title>LegalDoc AI - Legal Document Summarization</title>
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .loading-container {
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            margin: 2rem auto;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="logo">⚖️</div>
+        <h1>LegalDoc AI</h1>
+        <p>Loading your legal document workspace...</p>
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        // Redirect to login page after brief loading animation
+        setTimeout(() => {
+            window.location.href = 'pages/login.html';
+        }, 1500);
+    </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Documents - LegalDoc AI</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/comparison.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo">LegalDoc AI</div>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="upload.html">Upload Contract</a>
+            <a href="comparison.html" class="active">Compare Documents</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="comparison-container">
+            <h1>Compare Documents</h1>
+            <p class="subtitle">Upload two versions of a contract to identify changes and conflicts</p>
+
+            <!-- Dual Upload Areas -->
+            <div class="upload-grid">
+                <div class="upload-box" id="upload-box-1">
+                    <div class="upload-icon">📄</div>
+                    <h3>Original Version</h3>
+                    <p>Drag and drop or click to browse</p>
+                    <input type="file" id="file-1" accept=".pdf,.docx" hidden>
+                    <div class="file-status" id="status-1"></div>
+                </div>
+
+                <div class="upload-box" id="upload-box-2">
+                    <div class="upload-icon">📄</div>
+                    <h3>Revised Version</h3>
+                    <p>Drag and drop or click to browse</p>
+                    <input type="file" id="file-2" accept=".pdf,.docx" hidden>
+                    <div class="file-status" id="status-2"></div>
+                </div>
+            </div>
+
+            <!-- Compare Button -->
+            <button id="compare-btn" class="primary-btn" disabled>Compare Documents</button>
+
+            <!-- AI Processing Animation -->
+            <div id="comparison-loading" class="loading hidden">
+                <div class="ai-processing-container">
+                    <div class="spinner"></div>
+                    <h3 class="ai-title">🔄 AI is comparing documents...</h3>
+                    
+                    <div class="processing-stages">
+                        <div class="stage-item" id="comp-stage-1">
+                            <span class="stage-icon">📄</span>
+                            <span class="stage-text">Analyzing document structures...</span>
+                            <span class="stage-status">⏳</span>
+                        </div>
+                        
+                        <div class="stage-item" id="comp-stage-2">
+                            <span class="stage-icon">🔍</span>
+                            <span class="stage-text">Identifying clause differences...</span>
+                            <span class="stage-status">⏳</span>
+                        </div>
+                        
+                        <div class="stage-item" id="comp-stage-3">
+                            <span class="stage-icon">⚖️</span>
+                            <span class="stage-text">Detecting conflicts...</span>
+                            <span class="stage-status">⏳</span>
+                        </div>
+                        
+                        <div class="stage-item" id="comp-stage-4">
+                            <span class="stage-icon">⚠️</span>
+                            <span class="stage-text">Assessing risk levels...</span>
+                            <span class="stage-status">⏳</span>
+                        </div>
+                        
+                        <div class="stage-item" id="comp-stage-5">
+                            <span class="stage-icon">📊</span>
+                            <span class="stage-text">Generating comparison report...</span>
+                            <span class="stage-status">⏳</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="comp-progress-fill"></div>
+                    </div>
+                    <p class="progress-text" id="comp-progress-text">0% Complete</p>
+                </div>
+            </div>
+
+            <!-- Comparison Results -->
+            <div id="comparison-results" class="comparison-results hidden">
+                <h2>Comparison Results</h2>
+                
+                <!-- Sticky Summary Bar -->
+                <div class="sticky-summary-bar" id="sticky-summary-bar">
+                    <div class="summary-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Changes:</span>
+                            <span class="stat-value" id="total-changes">0</span>
+                        </div>
+                        <div class="stat-item high-risk">
+                            <span class="stat-label">High Risk:</span>
+                            <span class="stat-value" id="high-risk-count">0</span>
+                        </div>
+                        <div class="stat-item conflict">
+                            <span class="stat-label">Conflicts:</span>
+                            <span class="stat-value" id="conflicts-count">0</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Color Legend -->
+                    <div class="color-legend">
+                        <div class="legend-title">Legend:</div>
+                        <div class="legend-items">
+                            <span class="legend-item"><span class="legend-dot high">🔴</span> High Risk</span>
+                            <span class="legend-item"><span class="legend-dot medium">🟠</span> Medium Risk</span>
+                            <span class="legend-item"><span class="legend-dot low">🟢</span> Low Risk</span>
+                            <span class="legend-separator">|</span>
+                            <span class="legend-item"><span class="legend-dot modified">🟡</span> Modified</span>
+                            <span class="legend-item"><span class="legend-dot added">🟢</span> Added</span>
+                            <span class="legend-item"><span class="legend-dot removed">🔴</span> Removed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filter Options -->
+                <div class="filter-section">
+                    <label for="risk-filter" class="filter-label">
+                        <span class="filter-icon">🔍</span> Filter by:
+                    </label>
+                    <select id="risk-filter" class="filter-dropdown">
+                        <option value="all">All Changes</option>
+                        <option value="high">High Risk Only</option>
+                        <option value="conflicts">Conflicts Only</option>
+                        <option value="modified">Modified Only</option>
+                        <option value="added">Added Only</option>
+                        <option value="removed">Removed Only</option>
+                    </select>
+                    <span class="filter-count" id="filter-count"></span>
+                </div>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Clause</th>
+                            <th>Original</th>
+                            <th>Revised</th>
+                            <th>Risk Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparison-tbody">
+                        <!-- Comparison rows inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/comparison.js"></script>
+</body>
+</html>

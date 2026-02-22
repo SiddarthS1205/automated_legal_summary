@@ -1,0 +1,117 @@
+{
+  "documentId": "doc_2024_001_sa",
+  "summary": "This Master Service Agreement establishes a comprehensive framework for professional services between TechCorp Solutions Inc. and Global Enterprises Ltd. The agreement spans a 24-month initial term with automatic renewal provisions. Key financial terms include a monthly retainer of $50,000 with additional hourly rates for services exceeding the base scope. The contract includes standard confidentiality provisions, intellectual property assignment clauses, and mutual indemnification obligations. Notable provisions include an unlimited liability clause for gross negligence, a unilateral termination right for the client with 30 days notice, and mandatory arbitration for dispute resolution. The agreement contains several high-risk elements including broad indemnification language, automatic price escalation clauses, and limited liability caps that may expose the service provider to significant financial risk. Payment terms require net-15 processing with late payment penalties of 1.5% per month. The contract also includes non-compete and non-solicitation provisions extending 18 months post-termination within a 50-mile radius.",
+  "clauses": [
+    {
+      "id": "clause_001",
+      "title": "Payment Terms",
+      "text": "Client agrees to pay Service Provider a monthly retainer of $50,000 USD, payable within 15 days of invoice date. Additional services beyond the base scope will be billed at $250 per hour for senior consultants and $150 per hour for junior staff. Late payments shall incur interest at 1.5% per month or the maximum rate permitted by law, whichever is less.",
+      "type": "Financial",
+      "page": 3
+    },
+    {
+      "id": "clause_002",
+      "title": "Liability and Indemnification",
+      "text": "Service Provider shall indemnify, defend, and hold harmless Client from any and all claims, damages, losses, and expenses arising from Service Provider's gross negligence or willful misconduct. Service Provider's liability under this Agreement shall be unlimited for matters involving gross negligence, fraud, or breach of confidentiality obligations.",
+      "type": "Liability",
+      "page": 7
+    },
+    {
+      "id": "clause_003",
+      "title": "Termination Rights",
+      "text": "Client may terminate this Agreement at any time with or without cause upon providing 30 days written notice to Service Provider. Service Provider may only terminate for material breach by Client that remains uncured for 60 days following written notice. Upon termination by Client, Service Provider shall be entitled to payment for services rendered through the termination date only.",
+      "type": "Termination",
+      "page": 9
+    },
+    {
+      "id": "clause_004",
+      "title": "Intellectual Property Assignment",
+      "text": "All work product, deliverables, inventions, and intellectual property created by Service Provider in connection with services under this Agreement shall be deemed works made for hire and shall be the exclusive property of Client. Service Provider hereby assigns all rights, title, and interest in such materials to Client, including all copyrights, patents, trade secrets, and other proprietary rights.",
+      "type": "Intellectual Property",
+      "page": 5
+    },
+    {
+      "id": "clause_005",
+      "title": "Confidentiality Obligations",
+      "text": "Each party agrees to maintain in strict confidence all Confidential Information disclosed by the other party. Confidential Information includes business plans, financial data, customer lists, technical specifications, and any information marked as confidential. The receiving party shall not disclose such information to third parties and shall use it solely for purposes of this Agreement. These obligations shall survive termination for a period of five years.",
+      "type": "Confidentiality",
+      "page": 6
+    },
+    {
+      "id": "clause_006",
+      "title": "Non-Compete Provision",
+      "text": "During the term of this Agreement and for 18 months following termination, Service Provider shall not directly or indirectly engage in any business that competes with Client's business within a 50-mile radius of Client's principal place of business. Service Provider shall not solicit or hire any of Client's employees during this period.",
+      "type": "Non-Compete",
+      "page": 10
+    },
+    {
+      "id": "clause_007",
+      "title": "Automatic Renewal and Price Escalation",
+      "text": "This Agreement shall automatically renew for successive one-year terms unless either party provides 90 days written notice of non-renewal. Upon each renewal, the monthly retainer shall automatically increase by the greater of 5% or the Consumer Price Index increase for the preceding 12 months.",
+      "type": "Renewal",
+      "page": 2
+    },
+    {
+      "id": "clause_008",
+      "title": "Dispute Resolution",
+      "text": "Any dispute arising out of or relating to this Agreement shall be resolved exclusively through binding arbitration in accordance with the Commercial Arbitration Rules of the American Arbitration Association. The arbitration shall be conducted in New York, New York. Each party shall bear its own costs and fees, and the parties shall equally split the arbitrator's fees.",
+      "type": "Dispute Resolution",
+      "page": 11
+    }
+  ],
+  "riskFlags": [
+    {
+      "id": "risk_001",
+      "title": "Unlimited Liability Exposure",
+      "description": "The contract contains an unlimited liability provision for gross negligence and breach of confidentiality. This exposes the Service Provider to potentially catastrophic financial risk without any cap or limitation. Most service agreements include reasonable liability caps (e.g., 12 months of fees paid).",
+      "severity": "high",
+      "clauseId": "clause_002",
+      "recommendation": "Negotiate a liability cap of 12-24 months of fees paid, or obtain appropriate insurance coverage. Consider carving out only intentional misconduct and fraud from the liability cap."
+    },
+    {
+      "id": "risk_002",
+      "title": "Unilateral Termination Rights",
+      "description": "Client has the right to terminate at any time with only 30 days notice, while Service Provider can only terminate for material breach with 60 days cure period. This creates significant business uncertainty and imbalanced termination rights.",
+      "severity": "high",
+      "clauseId": "clause_003",
+      "recommendation": "Negotiate mutual termination rights or require longer notice period (90-180 days) for termination without cause. Consider adding termination fees or minimum commitment periods."
+    },
+    {
+      "id": "risk_003",
+      "title": "Automatic Price Escalation",
+      "description": "The automatic 5% annual price increase may exceed market rates and could make the services uncompetitive over time. The escalation is not tied to actual cost increases or value delivered.",
+      "severity": "medium",
+      "clauseId": "clause_007",
+      "recommendation": "Cap annual increases at 3% or CPI, whichever is lower. Consider tying increases to performance metrics or market benchmarking."
+    },
+    {
+      "id": "risk_004",
+      "title": "Broad Non-Compete Restriction",
+      "description": "The 18-month, 50-mile radius non-compete provision may be overly broad and potentially unenforceable in some jurisdictions. It significantly restricts Service Provider's ability to conduct business post-termination.",
+      "severity": "high",
+      "clauseId": "clause_006",
+      "recommendation": "Narrow the scope to specific client accounts or projects rather than geographic radius. Reduce duration to 6-12 months. Ensure provision complies with applicable state law restrictions on non-competes."
+    },
+    {
+      "id": "risk_005",
+      "title": "Broad IP Assignment",
+      "description": "The intellectual property clause assigns all work product to Client without exception for pre-existing IP or general methodologies. This could inadvertently transfer Service Provider's proprietary tools and processes.",
+      "severity": "medium",
+      "clauseId": "clause_004",
+      "recommendation": "Carve out pre-existing intellectual property and general methodologies. Limit assignment to client-specific deliverables only. Retain license to use general tools and processes."
+    },
+    {
+      "id": "risk_006",
+      "title": "Mandatory Arbitration",
+      "description": "The mandatory arbitration clause eliminates the right to jury trial and may limit discovery rights. Arbitration costs can be substantial and the outcome is difficult to appeal.",
+      "severity": "medium",
+      "clauseId": "clause_008",
+      "recommendation": "Consider negotiating for mediation as a first step before arbitration. Ensure arbitration rules allow for adequate discovery. Consider carving out injunctive relief for confidentiality breaches."
+    }
+  ],
+  "metadata": {
+    "processedAt": "2024-01-15T14:35:42.000Z",
+    "documentType": "Master Service Agreement",
+    "pageCount": 12
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "comparisonId": "comp_2024_001",
+  "document1": {
+    "id": "doc_2024_001_sa_v1",
+    "name": "Service_Agreement_v1.pdf"
+  },
+  "document2": {
+    "id": "doc_2024_001_sa_v2",
+    "name": "Service_Agreement_v2.pdf"
+  },
+  "differences": [
+    {
+      "clauseTitle": "Payment Terms",
+      "original": "Client agrees to pay Service Provider a monthly retainer of $45,000 USD, payable within 30 days of invoice date.",
+      "revised": "Client agrees to pay Service Provider a monthly retainer of $50,000 USD, payable within 15 days of invoice date. Late payments shall incur interest at 1.5% per month.",
+      "changeType": "modified",
+      "riskLevel": "medium",
+      "isConflict": false
+    },
+    {
+      "clauseTitle": "Liability Cap",
+      "original": "Service Provider's total liability under this Agreement shall not exceed the total fees paid by Client in the 12 months preceding the claim.",
+      "revised": "Service Provider's liability under this Agreement shall be unlimited for matters involving gross negligence, fraud, or breach of confidentiality obligations.",
+      "changeType": "modified",
+      "riskLevel": "high",
+      "isConflict": true
+    },
+    {
+      "clauseTitle": "Termination Notice Period",
+      "original": "Either party may terminate this Agreement with 90 days written notice.",
+      "revised": "Client may terminate this Agreement at any time with 30 days written notice. Service Provider may only terminate for material breach with 60 days cure period.",
+      "changeType": "modified",
+      "riskLevel": "high",
+      "isConflict": true
+    },
+    {
+      "clauseTitle": "Automatic Renewal",
+      "original": "This Agreement shall continue on a month-to-month basis after the initial term unless terminated by either party.",
+      "revised": "This Agreement shall automatically renew for successive one-year terms unless either party provides 90 days written notice. Upon renewal, fees shall increase by 5% or CPI, whichever is greater.",
+      "changeType": "modified",
+      "riskLevel": "medium",
+      "isConflict": false
+    },
+    {
+      "clauseTitle": "Non-Compete Duration",
+      "original": "Service Provider agrees not to compete with Client for 12 months following termination within the same industry vertical.",
+      "revised": "Service Provider shall not compete with Client for 18 months following termination within a 50-mile radius and shall not solicit Client's employees.",
+      "changeType": "modified",
+      "riskLevel": "high",
+      "isConflict": true
+    },
+    {
+      "clauseTitle": "Intellectual Property Rights",
+      "original": "Client shall own all deliverables created specifically for Client. Service Provider retains ownership of pre-existing IP and general methodologies.",
+      "revised": "All work product and intellectual property created by Service Provider shall be deemed works made for hire and exclusive property of Client, including all copyrights, patents, and trade secrets.",
+      "changeType": "modified",
+      "riskLevel": "medium",
+      "isConflict": false
+    },
+    {
+      "clauseTitle": "Dispute Resolution Venue",
+      "original": "Disputes shall be resolved in the state and federal courts located in Delaware.",
+      "revised": "Disputes shall be resolved exclusively through binding arbitration in New York, New York under AAA Commercial Arbitration Rules.",
+      "changeType": "modified",
+      "riskLevel": "low",
+      "isConflict": false
+    },
+    {
+      "clauseTitle": "Insurance Requirements",
+      "original": "",
+      "revised": "Service Provider shall maintain professional liability insurance of at least $2,000,000 per occurrence and provide certificates of insurance to Client annually.",
+      "changeType": "added",
+      "riskLevel": "medium",
+      "isConflict": false
+    },
+    {
+      "clauseTitle": "Force Majeure",
+      "original": "Neither party shall be liable for delays caused by circumstances beyond their reasonable control, including acts of God, war, terrorism, or government action.",
+      "revised": "",
+      "changeType": "removed",
+      "riskLevel": "low",
+      "isConflict": false
+    },
+    {
+      "clauseTitle": "Confidentiality Duration",
+      "original": "Confidentiality obligations shall survive termination for three years.",
+      "revised": "Confidentiality obligations shall survive termination for five years.",
+      "changeType": "modified",
+      "riskLevel": "low",
+      "isConflict": false
+    }
+  ],
+  "summary": {
+    "totalChanges": 10,
+    "highRiskChanges": 3,
+    "conflicts": 3
+  }
+}
