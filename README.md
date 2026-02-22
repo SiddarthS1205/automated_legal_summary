@@ -1,6 +1,18 @@
-# Legal Document Summarization Frontend
+# LegalDoc AI – Legal Document Summarization Frontend
 
 A professional web-based frontend for an Automated Legal Document Summarization System. This SaaS application enables law firms to upload contracts and receive AI-generated summaries, extracted clauses, risk assessments, and document comparisons.
+
+## Overview
+
+This project represents the frontend layer of an AI-powered Legal Document Analysis platform.  
+It is designed to integrate with a serverless AWS backend that performs:
+
+- Clause extraction using Generative AI
+- Executive summary generation
+- Risk classification and scoring
+- Contract version comparison
+
+This repository contains the complete SaaS-style frontend implementation.
 
 ## Features
 
@@ -185,8 +197,14 @@ When integrating with a real backend:
 
 ## License
 
-This project is for demonstration purposes.
+This project is developed for academic and demonstration purposes as part of a B.Tech Artificial Intelligence & Data Science program.
 
 ## Support
 
-For questions or issues, please contact your development team.
+## Author
+
+Siddarth S  
+B.Tech Artificial Intelligence & Data Science  
+Sri Manakula Vinayagar Engineering College  
+
+GitHub: https://github.com/SiddarthS1205
